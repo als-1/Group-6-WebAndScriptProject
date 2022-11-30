@@ -21,24 +21,24 @@ module.exports.displayLazysocial = (req, res, next) => {
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('store/add', { title: 'Add Item' })
+    res.render('lazySocial/add', { title: 'Add Item' })
 }
 
 module.exports.processAddPage = (req, res, next) => {
-    let newItem = Store({
+    let newItem = lazySocial({
         "name": req.body.name,
         "catagory": req.body.catagory,
         "description": req.body.description,
         "stock": req.body.stock,
         "price": req.body.price
     });
-    Store.create(newItem, (err, Store) => {
+    lazySocial.create(newItem, (err, lazySocial) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.redirect('/store-catalogue');
+            res.redirect('/lazySocial-catalogue');
         }
     })
 
@@ -46,20 +46,20 @@ module.exports.processAddPage = (req, res, next) => {
 
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
-    Store.findById(id, (err, itemToEdit) => {
+    lazySocial.findById(id, (err, itemToEdit) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.render('store/edit', { title: 'Edit Item', item: itemToEdit });
+            res.render('lazySocial/edit', { title: 'Edit Item', item: itemToEdit });
         }
     });
 }
 
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id;
-    let updateItem = Store({
+    let updateItem = lazySocial({
         "_id": id,
         "name": req.body.name,
         "catagory": req.body.catagory,
@@ -67,39 +67,39 @@ module.exports.processEditPage = (req, res, next) => {
         "stock": req.body.stock,
         "price": req.body.price
     });
-    Store.updateOne({ _id: id }, updateItem, (err) => {
+    lazySocial.updateOne({ _id: id }, updateItem, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.redirect('/store-catalogue');
+            res.redirect('/lazySocial-catalogue');
         }
     });
 }
 
 module.exports.displayDeletePage = (req, res, next) => {
     let id = req.params.id;
-    Store.findById(id, (err, itemToEdit) => {
+    lazySocial.findById(id, (err, itemToEdit) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.render('store/delete', { title: 'Delete Item', item: itemToEdit });
+            res.render('lazySocial/delete', { title: 'Delete Item', item: itemToEdit });
         }
     });
 }
 
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
-    Store.deleteOne({ _id: id }, (err) => {
+    lazySocial.deleteOne({ _id: id }, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.redirect('/store-catalogue');
+            res.redirect('/lazySocial-catalogue');
         }
     });
 }
