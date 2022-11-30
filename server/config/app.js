@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter); //localhost:3000
-app.use('/lazysocial', lazysocialRouter);//localhost:3000/social-view
+app.use('/lazysocial', lazysocialRouter);//localhost:3000/lazysocial
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

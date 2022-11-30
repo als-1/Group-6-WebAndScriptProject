@@ -2,31 +2,31 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-//connect with store model
+//connect with lazysocial model
 
-let store = require('../models/store');
-let storeController = require('../controller/store');
+let lazysocial = require('../models/lazysocial');
+let lazysocialController = require('../controller/lazysocial');
 
-/*show catalogue page*/
-router.get('/', storeController.displayStoreCatalogue);
+/*show lazysocial page*/
+router.get('/', lazysocialController.displayLazysocial);
 
 /*show add item page*/
-router.get('/add', storeController.displayAddPage);
+router.get('/add', lazysocialController.displayAddPage);
 
 /*add item operation*/
-router.post('/add', storeController.processAddPage);
+router.post('/add', lazysocialController.processAddPage);
 
 /*show edit item page*/
-router.get('/edit/:id', storeController.displayEditPage);
+router.get('/edit/:id', lazysocialController.displayEditPage);
 
 /*update item operation*/
-router.post('/edit/:id', storeController.processEditPage);
+router.post('/edit/:id', lazysocialController.processEditPage);
 
 /*show delete confirmation*/
-router.get('/delete/:id', storeController.displayDeletePage)
+router.get('/delete/:id', lazysocialController.displayDeletePage)
 
 /*delete item operation*/
-router.post('/delete/:id', storeController.performDelete);
+router.post('/delete/:id', lazysocialController.performDelete);
 
 module.exports = router;
 

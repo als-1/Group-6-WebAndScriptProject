@@ -5,7 +5,7 @@
     <div class="row">
     <div class="col-md-offset-3 col-md-10">
     <h1><%= title %></h1>
-    <a href="/store-catalogue/add" class="btn btn-primary" role="button">
+    <a href="/lazysocial/add" class="btn btn-primary" role="button">
         <i class="fas fa-plus-circle"></i> Add an Item </a>
         <br>
     <br>
@@ -22,20 +22,20 @@
     </tr>
     </thead>
     <tbody>
-    <% for(let count= 0; count<StoreCatalogue.length; count ++) {%>
+    <% for(let count= 0; count<Lazysocial.length; count ++) {%>
         <tr class="d-flex">
-        <td class="text-centre col-2"><%= StoreCatalogue[count].name %></td>
-        <td class="text-centre col-2"><%= StoreCatalogue[count].catagory %></td>
-        <td class="text-centre col-4"><%= StoreCatalogue[count].description %></td>
-        <td class="text-centre col-1"><%= StoreCatalogue[count].stock %></td>
-        <td class="text-centre col-1"><%= StoreCatalogue[count].price %></td>
+        <td class="text-centre col-2"><%= Lazysocial[count].name %></td>
+        <td class="text-centre col-2"><%= Lazysocial[count].catagory %></td>
+        <td class="text-centre col-4"><%= Lazysocial[count].description %></td>
+        <td class="text-centre col-1"><%= Lazysocial[count].stock %></td>
+        <td class="text-centre col-1"><%= Lazysocial[count].price %></td>
         <td class="text-centre col-1">
-            <a href="/store-catalogue/edit/<%= StoreCatalogue[count]._id %>"
+            <a href="/lazysocial/edit/<%= Lazysocial[count]._id %>"
             class="btn btn-primary">
             <i class="fas fa-pencil"></i> </a>
             </td>
         <td class="text-centre col-1">
-            <a href="/store-catalogue/delete/<%= StoreCatalogue[count]._id %>"
+            <a href="/lazysocial/delete/<%= Lazysocial[count]._id %>"
             class="btn btn-danger">
             <i class="fas fa-xmark"></i> </a>
             </td>

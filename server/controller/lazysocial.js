@@ -6,14 +6,14 @@ let Lazysocial = require('../models/lazysocial');
 /* CRUD Operation*/
 
 module.exports.displayLazysocial = (req, res, next) => {
-    Lazysocial.find((err, Lazysocial) => {
+    Lazysocial.find((err, lazysocial) => {
         if (err) {
             return console.error(err);
         }
         else {
             //console.log(lazysocial);
-            res.render('lazysocial/catalogue', {
-                title: 'Lazysocial view',
+            res.render('lazysocial/entries', {
+                title: 'Lazy Social',
                 Lazysocial: lazysocial
             })
         }
@@ -21,7 +21,7 @@ module.exports.displayLazysocial = (req, res, next) => {
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('lazySocial/add', { title: 'Add Item' })
+    res.render('lazysocial/add', { title: 'Add Item' })
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -38,7 +38,7 @@ module.exports.processAddPage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.redirect('/lazySocial-catalogue');
+            res.redirect('/lazySocial');
         }
     })
 
@@ -52,7 +52,7 @@ module.exports.displayEditPage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.render('lazySocial/edit', { title: 'Edit Item', item: itemToEdit });
+            res.render('lazysocial/edit', { title: 'Edit Item', item: itemToEdit });
         }
     });
 }
@@ -73,7 +73,7 @@ module.exports.processEditPage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.redirect('/lazySocial-catalogue');
+            res.redirect('/lazysocial');
         }
     });
 }
@@ -86,7 +86,7 @@ module.exports.displayDeletePage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.render('lazySocial/delete', { title: 'Delete Item', item: itemToEdit });
+            res.render('lazysocial/delete', { title: 'Delete Item', item: itemToEdit });
         }
     });
 }
@@ -99,7 +99,7 @@ module.exports.performDelete = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.redirect('/lazySocial-catalogue');
+            res.redirect('/lazysocial');
         }
     });
 }

@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
-//create store model
-let storeModel = mongoose.Schema
+//create lazysocial model
+let lazysocialModel = mongoose.Schema
 ({
     name: String,
     catagory: String,
@@ -9,8 +9,8 @@ let storeModel = mongoose.Schema
     price: Number,
 },
 {
-    collection: "catalogue",
+    collection: "entries",
 }
 );
 
-module.exports = mongoose.model('Store', storeModel);
+module.exports = mongoose.model('Lazysocial', lazysocialModel);
