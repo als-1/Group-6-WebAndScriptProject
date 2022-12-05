@@ -32,7 +32,7 @@ module.exports.displayAddPage = (req,res,next)=> {
 }
 
 module.exports.processAddPage = (req,res,next)=> {
-    let newFriend = friend ({
+    let newFriend = Friend ({
      "name":req.body.name,
      "userName":req.body.userName,
      "description": req.body.description,
@@ -63,7 +63,7 @@ module.exports.processAddPage = (req,res,next)=> {
         }
         else
         {
-            res.render('friend/edit',{title:'Edit Friend', 
+            res.render('friends/edit',{title:'Edit Friend', 
             friend:friendToEdit,
             displayName: req.user ? req.user.displayName:''  });
         }
@@ -72,7 +72,7 @@ module.exports.processAddPage = (req,res,next)=> {
 
  module.exports.processEditPage = (req,res,next)=> {
     let id=req.params.id;
-    let updateFriend = friend({
+    let updateFriend = Friend({
         "_id":id,
         "name":req.body.name,
         "userName":req.body.userName,
