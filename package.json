@@ -35,5 +35,17 @@
     "@types/passport-jwt": "^3.0.7",
     "@types/passport-local": "^1.0.34",
     "@types/passport-local-mongoose": "^6.1.1"
-  }
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Munieb09/INFR3120ClassProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Munieb09/INFR3120ClassProject/issues"
+  },
+  "homepage": "https://github.com/Munieb09/INFR3120ClassProject#readme",
+  "description": ""
 }
