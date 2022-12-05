@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose'); // npm i mongoose
+let jwt = require('jsonwebtoken');
 // connect with lazysocial model
 let Lazysocial = require('../models/lazysocial');
 /* CRUD Operation*/
@@ -21,7 +22,10 @@ module.exports.displayLazysocial = (req, res, next) => {
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('lazysocial/add', { title: 'Add Item' })
+    res.render('lazysocial/add', { 
+        title: 'Add Item',
+        displayName: req.user ? req.user.displayName:''  
+    })
 }
 
 module.exports.processAddPage = (req, res, next) => {
