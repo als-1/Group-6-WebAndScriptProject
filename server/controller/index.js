@@ -62,7 +62,7 @@ module.exports.processLoginPage = (req, res, next) => {
             });
 
             // TODO - Getting Ready to convert to API
-            return res.redirect('/')
+            return res.redirect('/friend-list')
         });
     })(req,res,next)
 }
@@ -111,7 +111,7 @@ module.exports.processRegisterPage = (req,res,next) => {
         //    res.json({success:true, msg:'User registered Successfully'});
             // if registration is successful
             return passport.authenticate('local')(req,res,()=>{
-                res.redirect('/lazysocial');
+                res.redirect('/friend-list');
             })    
         }
     })

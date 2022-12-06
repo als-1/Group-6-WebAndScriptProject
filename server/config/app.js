@@ -1,4 +1,4 @@
-// installed third party packages
+/* installed 3rd party packages */
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -25,13 +25,13 @@ let User = userModel.User;
 let mongoose = require('mongoose');
 let DB = require('./db');
 
-//point mongoose to DB URI
+// point mongoose to DB URI
 
 mongoose.connect(DB.URI);
-let mongoDB = mongoose.connection;
-mongoDB.on('error',console.error.bind(console, 'Connection error:' ));
-mongoDB.once('open', ()=>{
-  console.log('connected to the mongoDB')
+let mongDB = mongoose.connection;
+mongDB.on('error',console.error.bind(console,'Connection Error:'));
+mongDB.once('open', ()=> {
+  console.log('connected to the MongoDB');
 });
 
 // Set-up Express Session
@@ -59,7 +59,8 @@ app.use(flash());
 
 
 let indexRouter = require('../routes/index');
-let lazysocialRouter = require('../routes/lazysocial');
+let friendsRouter = require('../routes/friend');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
@@ -84,9 +85,9 @@ jwtoptions.secretOrKey = DB.secret;
 //     return done(err,false);
 //   }) })
 
-app.use('/', indexRouter); //localhost:3000
-app.use('/lazysocial', lazysocialRouter);//localhost:3000/lazysocial
 
+app.use('/', indexRouter); // localhost:3000
+app.use('/friend-list', friendsRouter); // localhost:3000/friend-list
 
 // catch 404 and forward to error 
 app.use(function(req, res, next) {
