@@ -4,8 +4,8 @@ let friendsModel = mongoose.Schema({
     name: String,
     userName: String,
     description: String,
-    phone: Number,
-    email: String
+    email: String,
+    phone: Number    
     },
     {
         collection: "friends"
