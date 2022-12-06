@@ -35,5 +35,17 @@
     "@types/passport-jwt": "^3.0.7",
     "@types/passport-local": "^1.0.34",
     "@types/passport-local-mongoose": "^6.1.1"
-  }
+  },
+  "description": "This is the second relase for the Group-6 project. Friends functionality is currently up. Please login first in order to add friends. Still in development please wait for the update.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alstonluo/Group-6-WebAndScriptProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alstonluo/Group-6-WebAndScriptProject/issues"
+  },
+  "homepage": "https://github.com/alstonluo/Group-6-WebAndScriptProject#readme"
 }
