@@ -36,7 +36,7 @@
     "@types/passport-local": "^1.0.34",
     "@types/passport-local-mongoose": "^6.1.1"
   },
-  "description": "This is the second relase for the Group-6 project. Friends functionality is currently up. Please login first in order to add friends. Still in development please wait for the update.",
+  "description": "This is the third relase for the Group-6 project. Friends functionality is currently up. Please login first in order to add friends. Still in development please wait for the update.",
   "main": "server.js",
   "repository": {
     "type": "git",
