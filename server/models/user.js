@@ -16,6 +16,13 @@ let User = mongoose.Schema({
         trim:true,
         required:'DisplayName is required'
     },
+    secret:
+    {
+        type:String,
+        default:"",
+        trim:true,
+        required:'TOTP secret is required'
+    },
     created:{
         type:Date,
         default: Date.now
