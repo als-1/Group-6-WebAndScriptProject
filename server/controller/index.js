@@ -3,6 +3,7 @@ const passport = require('passport');
 let router = express.Router();
 let jwt = require('jsonwebtoken');
 let DB = require('../config/db');
+let Speakeasy = require("speakeasy")
 
 let userModel = require('../models/user');
 let User = userModel.User;
@@ -38,7 +39,11 @@ module.exports.processLoginPage = (req, res, next) => {
             return next(err);
         }
         // is a login error
-        if(!user)
+        if(!user || !Speakeasy.totp.verify({
+            secret: user.secret,
+            encoding: "base32",
+            token: req.body.token,
+            window: 0}))
         {
             req.flash('loginMessage',
             'AuthenticationError');
@@ -75,7 +80,8 @@ module.exports.displayRegisterPage = (req,res,next)=>{
             {
                 title: 'Register',
                 message: req.flash('registerMessage'),
-                displayName: req.user ? req.user.displayName: ''
+                displayName: req.user ? req.user.displayName: '',
+                secret: Speakeasy.generateSecret({length:20}).base32
             })
     }
     else
@@ -88,7 +94,8 @@ module.exports.processRegisterPage = (req,res,next) => {
         username: req.body.username,
         //password: req.body.password,
         email:req.body.email,
-        displayName: req.body.displayName
+        displayName: req.body.displayName,
+        secret: req.body.secret
     })
     User.register(newUser, req.body.password, (err) =>{
         if(err)
@@ -103,7 +110,8 @@ module.exports.processRegisterPage = (req,res,next) => {
             {
                 title:'Register',
                 message: req.flash('registerMessage'),
-                displayName: req.user ? req.user.displayName:''
+                displayName: req.user ? req.user.displayName:'',
+                secret: Speakeasy.generateSecret({length:20}).base32
             });
         }
         else
