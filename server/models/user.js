@@ -21,7 +21,7 @@ let User = mongoose.Schema({
         type:String,
         default:"",
         trim:true,
-        required:'TOTP secret is required'
+        // required:'TOTP secret is required'
     },
     created:{
         type:Date,

@@ -4,6 +4,7 @@ let router = express.Router();
 let jwt = require('jsonwebtoken');
 let DB = require('../config/db');
 let Speakeasy = require("speakeasy")
+let QRCode = require('qrcode')
 
 let userModel = require('../models/user');
 let User = userModel.User;
@@ -39,7 +40,7 @@ module.exports.processLoginPage = (req, res, next) => {
             return next(err);
         }
         // is a login error
-        if(!user || !Speakeasy.totp.verify({
+        if(!user || user.secret && !Speakeasy.totp.verify({
             secret: user.secret,
             encoding: "base32",
             token: req.body.token,
@@ -90,13 +91,22 @@ module.exports.displayRegisterPage = (req,res,next)=>{
     }
 }
 module.exports.processRegisterPage = (req,res,next) => {
-    let newUser = new User({
-        username: req.body.username,
-        //password: req.body.password,
-        email:req.body.email,
-        displayName: req.body.displayName,
-        secret: req.body.secret
+    if(req.body.secret)
+    {
+        var newUser = new User({
+            username: req.body.username,
+            email:req.body.email,
+            displayName: req.body.displayName,
+            secret: req.body.secret
+    })}
+    else
+    {
+        var newUser = new User({
+            username: req.body.username,
+            email:req.body.email,
+            displayName: req.body.displayName,
     })
+    }
     User.register(newUser, req.body.password, (err) =>{
         if(err)
         {

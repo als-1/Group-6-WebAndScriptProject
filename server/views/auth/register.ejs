@@ -42,12 +42,12 @@
                     id="displayName" required>
                 </fieldset><br>
                 <fieldset class="form-group">
-                    <label for="secret">TOTP Secret (COPY IT DOWN): </label>
+                    <label for="secret">TOTP Secret (Clear field to omit MFA): </label>
                     <input type="text" class="form-control"
                     name="secret" 
                     placeholder="Enter secret"
                     value="<%= secret %>"
-                    id="secret" required>
+                    id="secret">
                 </fieldset>
                 <fieldset class="form-group text-right">
                     <input type="submit" class="btn btn-success" value="Register">
