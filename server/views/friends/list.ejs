@@ -11,7 +11,7 @@
         <br>
     <% } %>
     <br>
-    <table class= "table table-bordered table-hover">
+    <table class= "table table-borderless table-hover table-sm table-striped table-responsive-md table-dark">
     <thead class="thead-dark">
     <tr class="d-flex">
     <% if(typeof displayName=='string' && displayName) { %>
@@ -35,12 +35,12 @@
     <% for(let count= 0; count < Friendlist.length; count ++) {%>
         <tr class="d-flex">
         <% if(typeof displayName=='string' && displayName) { %>
-            <td class="text-center col-2"><%= Friendlist[count].name %></td>
-            <td class="text-center col-2"><%= Friendlist[count].userName %></td>
-            <td class="text-center col-4"><%= Friendlist[count].description %></td>
-            <td class="text-center col-3"><%= Friendlist[count].email %></td>
-            <td class="text-center col-2"><%= Friendlist[count].number %></td>
-            <td class="text-center col-1">
+            <td class="text-center col-2" style="word-wrap: break-word;"><%= Friendlist[count].name %></td>
+            <td class="text-center col-2" style="word-wrap: break-word;"><%= Friendlist[count].userName %></td>
+            <td class="text-center col-4" style="word-wrap: break-word;"><%= Friendlist[count].description %></td>
+            <td class="text-center col-3" style="word-wrap: break-word;"><%= Friendlist[count].email %></td>
+            <td class="text-center col-2" style="word-wrap: break-word;"><%= Friendlist[count].number %></td>
+            <td class="text-center col-1" style="word-wrap: break-word;">
                 <a href="/friend-list/edit/<%= Friendlist[count]._id %>"
                 class="btn btn-primary">
                     <i class="fas fa-pencil"></i> </a>
@@ -51,11 +51,11 @@
                 <i class="fas fa-xmark"></i> </a>
                 </td>
         <% } else { %> 
-            <td class="text-center col-2"><%= Friendlist[count].name %></td>
-            <td class="text-center col-2"><%= Friendlist[count].userName %></td>
-            <td class="text-center col-4"><%= Friendlist[count].description %></td>
-            <td class="text-center col-3"><%= Friendlist[count].email %></td>
-            <td class="text-center col-2"><%= Friendlist[count].number %></td>
+            <td class="text-center col-2" style="word-wrap: break-word;"><%= Friendlist[count].name %></td>
+            <td class="text-center col-2" style="word-wrap: break-word;"><%= Friendlist[count].userName %></td>
+            <td class="text-center col-4" style="word-wrap: break-word;"><%= Friendlist[count].description %></td>
+            <td class="text-center col-3" style="word-wrap: break-word;"><%= Friendlist[count].email %></td>
+            <td class="text-center col-2" style="word-wrap: break-word;"><%= Friendlist[count].number %></td>
         <% } %> 
         </tr>
     <% } %>
